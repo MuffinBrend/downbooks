@@ -4,6 +4,11 @@ gem 'rails', '4.2.4'
 gem 'mysql2', '~> 0.3.18'
 gem 'uglifier', '>= 1.3.0'
 
+# Use twitter-bootstrap
+gem "therubyracer"
+gem "less-rails"
+gem "twitter-bootstrap-rails"
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
