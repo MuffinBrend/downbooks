@@ -1,0 +1,59 @@
+<% provide(:title, 'Crear cuenta de usuario') %>
+
+<h1>Nuevo usuario</h1>
+<p>Rellena el formulario para crear una cuenta de usuario en Downbooks</p>
+
+<% if @user.errors %>
+<ul>
+  <% @user.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-1">
+    <%= form_for(@user, :html => {class: "form form-horizontal"}) do |f| %>
+    <div class="form-group">
+      <%= f.label :username, "Usuario", :class => "col-md-4 control-label" %>
+      <div class="col-md-8">
+        <%= f.text_field :username, :class => "form-control", :required => true %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :name, "Nombre completo", :class => "col-md-4 control-label" %>
+      <div class="col-md-8">
+        <%= f.text_field :name, :class => "form-control", :required => true %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :email, "Correo electrónico", :class => "col-md-4 control-label" %>
+      <div class="col-md-8">
+        <%= f.email_field :email, :class => "form-control", :required => true %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password, "Contraseña", :class => "col-md-4 control-label" %>
+      <div class="col-md-8">
+        <%= f.password_field :password, :class => "form-control", :required => true %>
+        <span class="help-block">
+          La contraseña debe tener al menos 8 caracteres. Crea una
+          <a href="https://support.mozilla.org/es/kb/crear-contrasenas-mas-seguras-para-mantener-tu-ide" target="_blank">
+            contraseña segura
+          </a>
+          para proteger tu cuenta de usuario.
+        </span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-offset-4 col-md-8">
+        <%= f.submit "Crear usuario", :class => "btn btn-default" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
