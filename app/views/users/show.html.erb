@@ -1,0 +1,22 @@
+<% provide(:title, @user.username) %>
+
+<h1><i class="fa fa-user"></i> <%= @user.name %></h1>
+
+<div class="row">
+  <div class="col-md-3">
+    <a href="#" class="thumbnail">
+      <%= image_tag "profile.png" %>
+    </a>
+  </div>
+
+  <div class="col-md-9">
+    <dl>
+      <dt>Usuario</dt>
+      <dd><%= @user.username %></dd>
+      <dt>Nombre</dt>
+      <dd><%= @user.name %></dd>
+      <dt>Correo electrónico</dt>
+      <dd><%= @user.email %></dd>
+    </dl>
+  </div>
+</div>

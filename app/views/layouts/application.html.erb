@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Downbooks" %></title>
+    <title><%= content_for?(:title) ? "Downbooks - #{yield(:title)}" : "Downbooks" %></title>
     <%= csrf_meta_tags %>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -45,12 +45,12 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Downbooks</a>
+        <%= link_to "Downbooks", root_path, class: "navbar-brand" %>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Link1", "/path1"  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
+            <li><%= link_to "Nuevo usuario", new_user_path %></li>
+            <li><%= link_to "Link2", "/path2" %></li>
+            <li><%= link_to "Link3", "/path3" %></li>
           </ul>
         </div>
       </div>
@@ -75,6 +75,7 @@
         </div><!--/span-->
       </div><!--/row-->
 
+      <%= debug(params) if Rails.env.development? %>
       <footer>
         <p>&copy; Downbooks 2015</p>
       </footer>
