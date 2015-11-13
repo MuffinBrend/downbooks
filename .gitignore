@@ -19,3 +19,6 @@
 # Ignore installed gems
 /vendor/bundle
 .envrc
+
+.idea
+
