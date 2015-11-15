@@ -18,6 +18,8 @@
       <dt>Correo electrónico</dt>
       <dd><%= @user.email %></dd>
     </dl>
-    <%= link_to "Editar perfil", edit_user_path, class: "btn btn-primary btn-lg" %>
+    <% if current_user.id == @user.id %>
+        <%= link_to "Editar perfil", edit_user_path, class: "btn btn-primary btn-lg" %>
+    <% end %>
   </div>
 </div>
