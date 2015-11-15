@@ -1,0 +1,33 @@
+<% provide(:title, 'Iniciar sesión') %>
+
+<h1>Iniciar sesión</h1>
+<p>Rellena el formulario para iniciar tu sesión en Downbooks</p>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-1">
+    <%= form_for(:session, url: login_path, :html => {class: "form form-horizontal"}) do |f| %>
+        <div class="form-group">
+          <%= f.label :email, "Correo electrónico", :class => "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= f.email_field :email, :class => "form-control", :required => true %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password, "Contraseña", :class => "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= f.password_field :password, :class => "form-control", :required => true %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-offset-4 col-md-8">
+            <%= f.submit "Iniciar sesión", :class => "btn btn-default" %>
+          </div>
+        </div>
+    <% end %>
+    <div class="col-md-offset-4 col-md-8">
+      <p>¿Eres nuevo? <%= link_to "¡Unete ya!", new_user_path %></p>
+    </div>
+  </div>
+</div>
