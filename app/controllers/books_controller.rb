@@ -23,4 +23,8 @@ class BooksController < ApplicationController
       render action: 'new'
     end
   end
+
+  def index
+    @books = Book.all
+  end
 end

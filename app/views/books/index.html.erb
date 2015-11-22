@@ -1,0 +1,10 @@
+<% provide(:title, 'Libros') %>
+
+<h1><i class="fa fa-book"></i> Libros</h1>
+<% if @books.empty? %>
+    <p>No hay libros.</p>
+<% else %>
+    <div class="books">
+      <%= render @books %>
+    </div>
+<% end %>

@@ -1,0 +1,15 @@
+<div class="media">
+  <a class="pull-left" href="<%= book_path(book) %>">
+    <%= image_tag "profile.png", size: "70x100", class: "media-object" %>
+  </a>
+
+  <div class="media-body">
+    <h4 class="media-heading">
+      <a href="<%= book_path(book) %>">
+        <%= book.title %>
+      </a>
+    </h4>
+    <%= book.author %>
+
+  </div>
+</div>
