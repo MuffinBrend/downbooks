@@ -13,8 +13,8 @@
 
   </div>
   <% if current_user.following?(user) %>
-      <%= render "unfollow", user: user, class_name: "btn btn-danger btn-sm" %>
+      <%= render "unfollow", user: user, class_name: "btn btn-danger btn-xs" %>
   <% else %>
-      <%= render "follow", user: user, class_name: "btn btn-success btn-sm" %>
+      <%= render "follow", user: user, class_name: "btn btn-success btn-xs" %>
   <% end %>
 </div>
