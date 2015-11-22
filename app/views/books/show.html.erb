@@ -1,0 +1,43 @@
+<% provide(:title, @book.title) %>
+
+<h1><i class="fa fa-book"></i> <%= @book.title %></h1>
+
+<div class="row">
+  <div class="col-sm-3">
+    <a href="#" class="thumbnail">
+      <%= image_tag "profile.png" %>
+    </a>
+  </div>
+
+  <div class="col-sm-5">
+    <dl>
+      <dt>Título</dt>
+      <dd><%= @book.title %></dd>
+      <dt>Autor</dt>
+      <dd><%= @book.author %></dd>
+      <dt>ISBN</dt>
+      <dd><%= @book.isbn %></dd>
+      <dt>Fecha de publicación</dt>
+      <dd><%= @book.publication_date %></dd>
+      <dt>Editorial</dt>
+      <dd><%= @book.publisher %></dd>
+      <dt>Idioma</dt>
+      <dd><%= @book.language %></dd>
+      <dt>Genero</dt>
+      <dd><%= @book.genre %></dd>
+      <dt>Descripción</dt>
+      <dd><%= @book.description %></dd>
+    </dl>
+  </div>
+
+  <div class="col-sm-4">
+    <ul class="list-group">
+      <li class="list-group-item">
+        <h3>Puntuar libro</h3>
+        <a href="<%= vote_book_path(@book) %>?rating=5" class="btn btn-default btn-lg">
+          <span class="fa fa-star-o"></span> Star
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -9,7 +9,11 @@ Rails.application.routes.draw do
     end
   end
   resources :relationships, only: [:create, :destroy]
-  resources :books
+  resources :books do
+    member do
+      get :vote
+    end
+  end
 end
 
 # The priority is based upon order of creation: first created -> highest priority.

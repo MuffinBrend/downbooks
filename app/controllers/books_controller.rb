@@ -27,4 +27,14 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
   end
+
+  def show
+    @book = Book.find(params[:id])
+  end
+
+  def vote
+    @book = Book.find(params[:id])
+    current_user.vote(@book, params[:rating])
+    render action: 'show'
+  end
 end

@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  has_many :microposts, dependent: :destroy
   has_many :active_relationships, class_name: "Relationship",
            foreign_key: "follower_id",
            dependent: :destroy
@@ -8,6 +7,7 @@ class User < ActiveRecord::Base
            dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :ratings, dependent: :delete_all
 
   before_save { self.email = email.downcase }
 
@@ -30,5 +30,11 @@ class User < ActiveRecord::Base
     following.include?(other_user)
   end
 
-  private
+  def vote(book, rating)
+    vote = ratings.find_by(book_id: book.id)
+    if vote != nil
+      ratings.delete(vote)
+    end
+    ratings.create(book_id: book.id, rating: rating)
+  end
 end
