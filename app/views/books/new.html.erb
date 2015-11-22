@@ -1,0 +1,80 @@
+<% provide(:title, 'Crear libro') %>
+
+<h1>Añadir libro</h1>
+<p>Rellena el formulario para añadir un libro en Downbooks</p>
+
+<% if @book.errors %>
+    <ul>
+      <% @book.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+      <% end %>
+    </ul>
+<% end %>
+
+<div class="row">
+  <div class="col-md-10">
+    <%= form_for(@book, :html => {class: "form form-horizontal"}) do |f| %>
+        <div class="form-group">
+          <%= f.label :title, "Título", :class => "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= f.text_field :title, :class => "form-control", :required => true %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :author, "Nombre del autor", :class => "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= f.text_field :author, :class => "form-control", :required => true %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :isbn, "ISBN", :class => "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= f.text_field :isbn, :class => "form-control", :required => true %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :publication_date, "Fecha de publicación", :class => "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= f.date_field :publication_date, :class => "form-control", :required => true %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :publisher, "Editorial", :class => "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= f.text_field :publisher, :class => "form-control", :required => true %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :language, "Idioma", :class => "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= f.text_field :language, :class => "form-control", :required => true %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :genre, "Género", :class => "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= f.text_field :genre, :class => "form-control", :required => true %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :description, "Descripción", :class => "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= f.text_area :description, :class => "form-control", :required => true %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-offset-4 col-md-8">
+            <%= f.submit "Añadir libro", :class => "btn btn-primary" %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>

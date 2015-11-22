@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     @user = User.new(username: newUser[:username], name: newUser[:name], email: newUser[:email], password: newUser[:password])
     if @user.save
       log_in @user
-      flash[:success] = "Usuario #{@user.username} creado con éxito!"
+      flash[:success] = "¡Usuario #{@user.username} creado con éxito!"
       redirect_to users_path
     else
       flash.now[:error] = "Ocurrió un error creando el usuario #{params[:user][:username]}"
