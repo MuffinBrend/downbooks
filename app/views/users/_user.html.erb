@@ -1,0 +1,20 @@
+<div class="media">
+  <a class="pull-left" href="<%= user_path(user) %>">
+    <%= image_tag "profile.png", size: "70", class: "media-object" %>
+  </a>
+
+  <div class="media-body">
+    <h4 class="media-heading">
+      <a href="<%= user_path(user) %>">
+        <%= user.username %>
+      </a>
+    </h4>
+    <%= user.name %>
+
+  </div>
+  <% if current_user.following?(user) %>
+      <%= render "unfollow", user: user, class_name: "btn btn-danger btn-sm" %>
+  <% else %>
+      <%= render "follow", user: user, class_name: "btn btn-success btn-sm" %>
+  <% end %>
+</div>

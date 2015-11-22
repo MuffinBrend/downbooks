@@ -1,1 +1,4 @@
-<%= link_to "Dejar de seguir", relationship_path, class: "btn btn-danger btn-lg" %>
+<%= form_for(current_user.active_relationships.find_by(followed_id: user.id),
+             html: { method: :delete }) do |f| %>
+  <%= f.submit "Dejar de seguir", class: class_name %>
+<% end %>

@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:index, :show, :edit, :update, :following, :followers]
+
   def index
     @users = User.all
   end
@@ -63,5 +65,21 @@ class UsersController < ApplicationController
       flash[:error] = "No se pudo encontrar el usuario"
       redirect_to users_path
     end
+  end
+
+  def following
+    @title = "Siguiendo"
+    @user = User.find(params[:id])
+    @users = @user.following
+    @no_users = "No sigues a nadie."
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Seguidores"
+    @user = User.find(params[:id])
+    @users = @user.followers
+    @no_users = "No tienes seguidores."
+    render 'show_follow'
   end
 end

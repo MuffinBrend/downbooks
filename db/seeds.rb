@@ -7,6 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 users = User.create([
-    { username: 'foobar', name: 'Foo Bar', email: 'foobar@downbooks.com'},
-    { username: 'johndoe', name: 'John Doe', email: 'johndoe@downbooks.com'},
-])
+                        {username: 'foobar', name: 'Foo Bar', email: 'foobar@downbooks.com'},
+                        {username: 'johndoe', name: 'John Doe', email: 'johndoe@downbooks.com'},
+                    ])

@@ -3,13 +3,13 @@
 <h1><i class="fa fa-user"></i> <%= @user.name %></h1>
 
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-sm-3">
     <a href="#" class="thumbnail">
       <%= image_tag "profile.png" %>
     </a>
   </div>
 
-  <div class="col-md-9">
+  <div class="col-sm-5">
     <dl>
       <dt>Usuario</dt>
       <dd><%= @user.username %></dd>
@@ -20,6 +20,26 @@
     </dl>
     <% if current_user.id == @user.id %>
         <%= link_to "Editar perfil", edit_user_path, class: "btn btn-primary btn-lg" %>
+    <% else %>
+        <% if current_user.following?(@user) %>
+            <%= render "unfollow", user: @user, class_name: "btn btn-danger btn-lg" %>
+        <% else %>
+            <%= render "follow", user: @user, class_name: "btn btn-success btn-lg" %>
+        <% end %>
     <% end %>
+  </div>
+
+  <div class="col-sm-4">
+    <ul class="list-group">
+      <li class="list-group-item">
+        <span class="badge"><%= @user.following.count %></span>
+        <a href="<%= following_user_path(@user) %>">Siguiendo</a>
+      </li>
+      <li class="list-group-item">
+        <span class="badge"><%= @user.followers.count %></span>
+        <a href="<%= followers_user_path(@user) %>">Seguidores</a>
+      </li>
+    </ul>
+
   </div>
 </div>
