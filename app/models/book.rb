@@ -8,4 +8,17 @@ class Book < ActiveRecord::Base
   validates :language, presence: true
   validates :genre, presence: true
   validates :description, presence: true
+
+  def avg_rating
+    rating_count = ratings.size
+    if rating_count == 0
+      return 0
+    end
+    total_rating = 0
+    ratings.each do |r|
+      total_rating = total_rating + r.rating
+    end
+    return total_rating / Float(rating_count)
+  end
+
 end

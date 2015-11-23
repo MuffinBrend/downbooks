@@ -37,4 +37,5 @@ class BooksController < ApplicationController
     current_user.vote(@book, params[:rating])
     render action: 'show'
   end
+
 end
