@@ -67,10 +67,17 @@
         </a>
       </li>
     </ul>
-    <div>
+
+    <div style="margin-bottom: 10px" class="text-right">
       <a href="<%= @book.file.url %>" class="btn btn-primary btn-download btn-lg">
         Descargar libro
       </a>
     </div>
+    <% if @book.user == current_user %>
+        <div class="text-right">
+          <%= link_to 'Borrar libro', @book, method: :delete,
+                      data: {confirm: '¿Seguro que quieres borrar este libro?'}, class: "btn btn-danger btn-lg" %>
+        </div>
+    <% end %>
   </div>
 </div>

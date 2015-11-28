@@ -41,4 +41,12 @@ class BooksController < ApplicationController
     render action: 'show'
   end
 
+  def destroy
+    @book = Book.find(params[:id])
+    if @book.user == current_user
+      @book.destroy
+      flash[:success] = "Libro eliminado con éxito"
+    end
+    redirect_to books_path
+  end
 end
