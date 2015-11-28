@@ -15,7 +15,8 @@ class BooksController < ApplicationController
                      language: newBook[:language],
                      genre: newBook[:genre],
                      description: newBook[:description],
-                     cover: newBook[:cover])
+                     cover: newBook[:cover],
+                     file: newBook[:file])
     if @book.save
       flash[:success] = "¡Libro #{@book.title} añadido con éxito!"
       redirect_to books_path

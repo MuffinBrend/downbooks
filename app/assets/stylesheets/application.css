@@ -36,3 +36,13 @@ body {
     margin-top: 10px;
 }
 
+.btn-download, .btn-download:active, .btn-download:focus {
+    background-color: rgb(95, 61, 131);
+    border-color: rgb(68, 42, 99);
+}
+
+.btn-download:hover {
+    background-color: rgb(133, 86, 191);
+    border-color: rgb(68, 42, 99);
+}
+
