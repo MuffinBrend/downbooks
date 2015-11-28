@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151128193521) do
+ActiveRecord::Schema.define(version: 20151128204609) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title",              limit: 255
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20151128193521) do
     t.string   "file_content_type",  limit: 255
     t.integer  "file_file_size",     limit: 4
     t.datetime "file_updated_at"
+    t.integer  "user_id",            limit: 4
   end
 
   add_index "books", ["author"], name: "index_books_on_author", using: :btree
