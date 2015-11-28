@@ -1,4 +1,5 @@
 class Book < ActiveRecord::Base
+  has_attached_file :cover, :styles => {:medium => "210x300>", :thumb => "70x100>"}, :default_url => "/images/:style/cover.jpeg"
   has_many :ratings, dependent: :delete_all
   validates :title, presence: true
   validates :author, presence: true
@@ -8,6 +9,7 @@ class Book < ActiveRecord::Base
   validates :language, presence: true
   validates :genre, presence: true
   validates :description, presence: true
+  validates_attachment_content_type :cover, :content_type => /\Aimage\/.*\Z/
 
   def avg_rating
     rating_count = ratings.size

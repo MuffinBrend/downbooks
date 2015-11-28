@@ -1,6 +1,6 @@
 <div class="media">
   <a class="pull-left" href="<%= book_path(book) %>">
-    <%= image_tag "profile.png", size: "70x100", class: "media-object" %>
+    <%= image_tag book.cover.url(:thumb), class: "media-object" %>
   </a>
 
   <div class="media-body">

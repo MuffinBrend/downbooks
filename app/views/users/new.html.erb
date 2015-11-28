@@ -15,13 +15,6 @@
   <div class="col-md-8 col-md-offset-1">
     <%= form_for(@user, :html => {class: "form form-horizontal"}) do |f| %>
         <div class="form-group">
-          <%= f.label :avatar, "Foto de perfil", :class => "col-md-4 control-label" %>
-          <div class="col-md-8">
-            <%= f.file_field :avatar %>
-          </div>
-        </div>
-
-        <div class="form-group">
           <%= f.label :username, "Usuario", :class => "col-md-4 control-label" %>
           <div class="col-md-8">
             <%= f.text_field :username, :class => "form-control", :required => true %>
@@ -53,6 +46,13 @@
           </a>
           para proteger tu cuenta de usuario.
         </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :avatar, "Foto de perfil", :class => "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= f.file_field :avatar %>
           </div>
         </div>
 
