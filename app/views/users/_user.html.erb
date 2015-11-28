@@ -1,6 +1,6 @@
 <div class="media">
   <a class="pull-left" href="<%= user_path(user) %>">
-    <%= image_tag "profile.png", size: "70", class: "media-object" %>
+    <%= image_tag user.avatar.url(:thumb), class: "media-object" %>
   </a>
 
   <div class="media-body">

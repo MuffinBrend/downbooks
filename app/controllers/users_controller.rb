@@ -46,9 +46,11 @@ class UsersController < ApplicationController
       if @user.authenticate(editedUser[:current_password])
         @user.name = editedUser[:name]
         @user.email = editedUser[:email]
+        if editedUser[:avatar]
+          @user.avatar = editedUser[:avatar]
+        end
         if not editedUser[:new_password].empty?
           @user.password = editedUser[:new_password]
-          puts "lol #{editedUser[:new_password]}"
         end
         if @user.save
           flash[:success] = "Usuario #{@user.username} editado con éxito!"

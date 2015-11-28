@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_attached_file :avatar, :styles => {:medium => "300x300>", :thumb => "70x70>"}, :default_url => "/images/:style/profile.png"
   has_many :active_relationships, class_name: "Relationship",
            foreign_key: "follower_id",
            dependent: :destroy
@@ -11,6 +12,7 @@ class User < ActiveRecord::Base
 
   before_save { self.email = email.downcase }
 
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   validates :name, presence: true, length: {maximum: 150}
   validates :username, presence: true, length: {maximum: 25}, uniqueness: {case_sensitive: false}
   validates :email, presence: true, length: {maximum: 255}, uniqueness: {case_sensitive: false}
