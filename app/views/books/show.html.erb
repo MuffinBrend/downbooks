@@ -65,6 +65,9 @@
         <a href="<%= vote_book_path(@book) %>?rating=10">
           <span class="fa fa-star-o"></span>
         </a>
+        <% if current_user.vote?(@book) %>
+            <h4>Mi puntuación es: <%= current_user.get_vote(@book).rating %> </h4>
+        <% end %>
       </li>
     </ul>
 

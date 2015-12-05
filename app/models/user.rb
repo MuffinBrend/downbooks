@@ -33,11 +33,18 @@ class User < ActiveRecord::Base
     following.include?(other_user)
   end
 
+  def get_vote(book)
+    return ratings.find_by(book_id: book.id)
+  end
+
   def vote(book, rating)
-    vote = ratings.find_by(book_id: book.id)
-    if vote != nil
-      ratings.delete(vote)
+    if vote?(book)
+      ratings.delete(get_vote(book))
     end
     ratings.create(book_id: book.id, rating: rating)
+  end
+
+  def vote?(book)
+    return get_vote(book) != nil
   end
 end
