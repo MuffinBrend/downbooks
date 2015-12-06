@@ -1,0 +1,25 @@
+<% provide(:title, 'Inicio') %>
+
+<div class="row">
+  <div class="col-md-12">
+    <h2><i class="fa fa-thumbs-up"></i> Mejores libros</h2>
+
+    <div class="row">
+      <% @books.each do |book| %>
+          <div class="col-xs-4 col-md-2">
+            <div>
+              <a href="<%= book_path(book) %>" class="thumbnail">
+                <%= image_tag book.cover.url(:thumb), class: "media-object" %>
+              </a>
+
+              <div class="caption">
+                <%= book.title %>
+
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
