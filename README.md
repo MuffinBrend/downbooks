@@ -18,7 +18,7 @@ por Downbooks.
 ### Construye Downbooks desde cero
 
 - Consigue el código del proyecto en
-  [https://github.com/edmundoa/downbooks](https://github.com/edmundoa/downbooks).
+  [https://github.com/MuffinBrend/downbooks](https://github.com/MuffinBrend/downbooks).
 - Ve a la carpeta que contiene el código fuente y ejecuta
   `bundle install`. Eso instalará las gemas necesarias para desarrollar y
   ejecutar la aplicación.
